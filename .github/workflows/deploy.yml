@@ -17,6 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Probando az cli
+        run: | 
+          - az --version
+          - az login -u ${{ secrets.AWA_USERNAME }} -p ${{ secrets.AWA_PASSWORD }}
       - name: Configurando .NET Core
         uses: actions/setup-dotnet@v4
         with:
