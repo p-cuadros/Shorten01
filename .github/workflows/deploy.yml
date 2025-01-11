@@ -8,6 +8,8 @@ env:
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'infra/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,7 +21,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Probando az cli
         run: | 
-          az --version
           az login -u ${{ secrets.AWA_USERNAME }} -p ${{ secrets.AWA_PASSWORD }}
       - name: Configurando .NET Core
         uses: actions/setup-dotnet@v4
