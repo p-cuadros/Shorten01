@@ -1,4 +1,4 @@
-name: Construcción y despliegue de una aplicación MVC a Azure
+name: Construcción Infrastructura en Azure
 
 env:
   AZURE_WEBAPP_NAME: appblazor2024123456  # Aqui va el nombre de su aplicación
@@ -23,8 +23,8 @@ jobs:
           az login -u ${{ secrets.AWA_USERNAME }} -p ${{ secrets.AWA_PASSWORD }} --only-show-errors
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-      - name: Terraform Fmt
-        run: cd Infra && terraform fmt -check
+    #   - name: Terraform Fmt
+    #     run: cd Infra && terraform fmt -check
       - name: Terraform Init
         run: cd Infra && terraform init 
         #-backend-config="resource_group_name=${{secrets.BACKEND_AZURE_RESOURCE_GROUP_NAME}}" -backend-config="storage_account_name=${{secrets.BACKEND_AZURE_STORAGE_ACCOUNT_NAME}}" -backend-config="container_name=${{secrets.BACKEND_AZURE_STORAGE_ACCOUNT_CONTAINER_NAME}}"
