@@ -18,8 +18,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Probando az cli
+      - name: login azure
         run: | 
           az login -u ${{ secrets.AWA_USERNAME }} -p ${{ secrets.AWA_PASSWORD }} --only-show-errors
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
+      - name: Terraform Fmt
+        id: fmt
+        run: terraform fmt -check
+      - name: Terraform Init
+        id: init
+        run: terraform init 
+        #-backend-config="resource_group_name=${{secrets.BACKEND_AZURE_RESOURCE_GROUP_NAME}}" -backend-config="storage_account_name=${{secrets.BACKEND_AZURE_STORAGE_ACCOUNT_NAME}}" -backend-config="container_name=${{secrets.BACKEND_AZURE_STORAGE_ACCOUNT_CONTAINER_NAME}}"
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+    #   - name: tfsec
+    #     uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
+    #     with:
+    #       tfsec_args: --soft-fail
+    #       github_token: ${{ github.token }}
+      - name: Terraform Plan
+        run: terraform plan -no-color
