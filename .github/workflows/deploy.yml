@@ -6,11 +6,11 @@ env:
   DOTNET_VERSION: '8'                     # la versión de .NET
 
 on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - 'infra/**'
-      - '.github/workflows/**'
+  # push:
+  #   branches: [ "main" ]
+  #   paths:
+  #     - 'infra/**'
+  #     - '.github/workflows/**'
   workflow_dispatch:
 permissions:
   contents: read

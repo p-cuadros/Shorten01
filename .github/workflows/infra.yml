@@ -1,0 +1,25 @@
+name: Construcción y despliegue de una aplicación MVC a Azure
+
+env:
+  AZURE_WEBAPP_NAME: appblazor2024123456  # Aqui va el nombre de su aplicación
+  AZURE_WEBAPP_PACKAGE_PATH: '.'          # Es la ruta de destino
+  DOTNET_VERSION: '8'                     # la versión de .NET
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'infra/**'
+      - '.github/workflows/infra.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probando az cli
+        run: | 
+          az login -u ${{ secrets.AWA_USERNAME }} -p ${{ secrets.AWA_PASSWORD }} --only-show-errors
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
