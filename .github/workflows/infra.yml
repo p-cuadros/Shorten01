@@ -38,8 +38,8 @@ jobs:
     #     with:
     #       tfsec_args: --soft-fail
     #       github_token: ${{ github.token }}
-    #   - name: Terraform Plan
-    #     run: cd Infra && terraform plan -no-color -out main.tfplan
+      - name: Terraform Plan
+        run: cd Infra && terraform plan -no-color -out main.tfplan
 
       - name: Create String Output
         id: tf-plan-string
