@@ -100,7 +100,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
-            const terramaid = fs.readFileSync('Terramaid.md', 'utf8');
+            const terramaid = fs.readFileSync('Infra/Terramaid.md', 'utf8');
             github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
