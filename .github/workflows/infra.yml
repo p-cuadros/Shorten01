@@ -41,27 +41,27 @@ jobs:
     #   - name: Terraform Plan
     #     run: cd Infra && terraform plan -no-color -out main.tfplan
 
-    #   - name: Create String Output
-    #     id: tf-plan-string
-    #     run: |
-    #         TERRAFORM_PLAN=$(cd Infra && terraform show -no-color main.tfplan)
+      - name: Create String Output
+        id: tf-plan-string
+        run: |
+            TERRAFORM_PLAN=$(cd Infra && terraform show -no-color main.tfplan)
 
-    #         delimiter="$(openssl rand -hex 8)"
-    #         echo "summary<<${delimiter}" >> $GITHUB_OUTPUT
-    #         echo "## Terraform Plan Output" >> $GITHUB_OUTPUT
-    #         echo "<details><summary>Click to expand</summary>" >> $GITHUB_OUTPUT
-    #         echo "" >> $GITHUB_OUTPUT
-    #         echo '```terraform' >> $GITHUB_OUTPUT
-    #         echo "$TERRAFORM_PLAN" >> $GITHUB_OUTPUT
-    #         echo '```' >> $GITHUB_OUTPUT
-    #         echo "</details>" >> $GITHUB_OUTPUT
-    #         echo "${delimiter}" >> $GITHUB_OUTPUT
+            delimiter="$(openssl rand -hex 8)"
+            echo "summary<<${delimiter}" >> $GITHUB_OUTPUT
+            echo "## Terraform Plan Output" >> $GITHUB_OUTPUT
+            echo "<details><summary>Click to expand</summary>" >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+            echo '```terraform' >> $GITHUB_OUTPUT
+            echo "$TERRAFORM_PLAN" >> $GITHUB_OUTPUT
+            echo '```' >> $GITHUB_OUTPUT
+            echo "</details>" >> $GITHUB_OUTPUT
+            echo "${delimiter}" >> $GITHUB_OUTPUT
 
-    #   - name: Publish Terraform Plan to Task Summary
-    #     env:
-    #       SUMMARY: ${{ steps.tf-plan-string.outputs.summary }}
-    #     run: |
-    #       echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
+      - name: Publish Terraform Plan to Task Summary
+        env:
+          SUMMARY: ${{ steps.tf-plan-string.outputs.summary }}
+        run: |
+          echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
 
       - name: Outputs
         id: vars
