@@ -138,7 +138,8 @@ jobs:
         run: |
             echo "## Costos de Infraestructura" >> $GITHUB_STEP_SUMMARY
             echo ${{ steps.html2markdown.outputs.markdown-content }} >> $GITHUB_STEP_SUMMARY
-            #cat ${{ steps.html2markdown.outputs.markdown-file }} >> $GITHUB_STEP_SUMMARY
+
+    # cat ${{ steps.html2markdown.outputs.markdown-file }}
 
     #   - name: Publish inframap in step comment
     #     run: |
