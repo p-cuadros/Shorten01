@@ -142,7 +142,9 @@ jobs:
             cat infracost.md >> $GITHUB_STEP_SUMMARY
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve 
+        run: |
+            cd Infra
+            terraform apply -auto-approve 
 
 
     # Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
