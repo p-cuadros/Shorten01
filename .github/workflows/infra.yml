@@ -125,7 +125,7 @@ jobs:
         run: |
             cd Infra
             infracost breakdown --path . --format html --out-file infracost-report.html
-            sed -i '19,123d' infracost-report.html
+            sed -i '19,133d' infracost-report.html
             cat infracost-report.html
 
       - name: Convert HTML to Markdown
