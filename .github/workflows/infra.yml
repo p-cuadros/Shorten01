@@ -21,7 +21,7 @@ jobs:
         run: |
             curl -L -o /tmp/tfsec_1.28.13_linux_amd64.tar.gz "https://github.com/aquasecurity/tfsec/releases/download/v1.28.13/tfsec_1.28.13_linux_amd64.tar.gz"
             tar -xzvf /tmp/tfsec_1.28.13_linux_amd64.tar.gz -C /tmp
-            mv -v /tmp/tfsec_1.28.13_linux_amd64 /usr/local/bin/tfsec
+            mv -v /tmp/tfsec /usr/local/bin/tfsec
             chmod +x /usr/local/bin/tfsec
       - name: tfsec
         run: |
