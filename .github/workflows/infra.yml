@@ -137,6 +137,7 @@ jobs:
       - name: Upload infracost report
         run: |
             echo "${{ steps.html2markdown.outputs.markdown-content }}" >> infracost.md
+            sed 's/$0/$ 0/g' infracost.md
             cat infracost.md >> $GITHUB_STEP_SUMMARY
 
 
