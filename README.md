@@ -30,3 +30,4 @@ flowchart TD
 
 ![Alt text](./inframap_azure.svg)
 
+inframap_azure.svg
