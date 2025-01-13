@@ -137,8 +137,9 @@ jobs:
       - name: Upload infracost report
         run: |
             echo ${{ steps.html2markdown.outputs.markdown-content }} >> infracost.md
+            sed '/(https://infracost.io)/d' infracost.md
             sed -i '4a\' infracost.md
-            sed -i '13a\' infracost.md
+            sed -i '15a\' infracost.md
             cat infracost.md
         #cat ${{ steps.html2markdown.outputs.markdown-file }} 
 
