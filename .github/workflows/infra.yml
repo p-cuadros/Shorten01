@@ -137,7 +137,7 @@ jobs:
       - name: Upload infracost report
         run: |
             echo "${{ steps.html2markdown.outputs.markdown-content }}" >> infracost.md
-            cat infracost.md
+            cat infracost.md >> $GITHUB_STEP_SUMMARY
 
 
     #cat ${{ steps.html2markdown.outputs.markdown-file }} 
