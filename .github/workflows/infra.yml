@@ -144,7 +144,7 @@ jobs:
       - name: Terraform Apply
         run: |
             cd Infra
-            terraform apply -auto-approve 
+            terraform apply -auto-approve main.tfplan
 
 
     # Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
