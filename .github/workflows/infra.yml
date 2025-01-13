@@ -27,11 +27,8 @@ jobs:
         run: |
           cd Infra
           /usr/local/bin/tfsec --format=markdown --out=tfsec.md .
-          cat tfsec.md
-    #   - name: Upload SARIF file
-    #     uses: github/codeql-action/upload-sarif@v3
-    #     with:
-    #       sarif_file: Infra/tfsec.sarif          
+          echo "## TFSec Output" >> $GITHUB_STEP_SUMMARY
+          cat tfsec.md >> $GITHUB_STEP_SUMMARY
   
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -124,7 +121,6 @@ jobs:
         with:
           name: inframap_azure.svg
           path: Infra/inframap_azure.svg
-          #compression-level: 0 # no compression
 
       - name: Setup Infracost
         uses: infracost/actions/setup@v3
