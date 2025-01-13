@@ -1,8 +1,6 @@
 name: Construcción Infrastructura en Azure
 
 env:
-  AZURE_WEBAPP_NAME: appblazor2024123456  # Aqui va el nombre de su aplicación
-  AZURE_WEBAPP_PACKAGE_PATH: '.'          # Es la ruta de destino
   DOTNET_VERSION: '8'                     # la versión de .NET
 
 on:
@@ -103,7 +101,7 @@ jobs:
             curl -L -o /tmp/inframap.tar.gz "https://github.com/cycloidio/inframap/releases/download/v0.7.0/inframap-linux-amd64.tar.gz"
             ls -al /tmp
             tar -xzvf /tmp/inframap.tar.gz -C /tmp
-            mv -v /tmp/inframap /usr/local/bin/inframap
+            mv -v /tmp/inframap-linux-amd64 /usr/local/bin/inframap
             chmod +x /usr/local/bin/inframap
 
       - name: Inframap
