@@ -124,7 +124,7 @@ jobs:
       - name: Infracost
         run: |
             cd Infra
-            /usr/local/bin/infracost breakdown --path . --format html --out-file infracost-report.html
+            infracost breakdown --path . --format html --out-file infracost-report.html
             sed -i '19,123d' infracost-report.html
 
       - name: Convert HTML to Markdown
