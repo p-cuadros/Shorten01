@@ -29,4 +29,4 @@ flowchart TD
 ```
 
 ![Alt text](./inframap_azure.svg)
-<img src="./inframap_azure.svg">
+
