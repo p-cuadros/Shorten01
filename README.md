@@ -28,5 +28,5 @@ flowchart TD
     azurerm_service_plan_appserviceplan --> azurerm_resource_group_rg
 ```
 
-
-/Users/patrick.cuadros/Sources/AppWeb03/Infra/inframap_azure.svg
+![Alt text](./inframap_azure.svg)
+<img src="./inframap_azure.svg">
