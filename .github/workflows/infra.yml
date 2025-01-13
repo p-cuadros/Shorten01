@@ -112,16 +112,18 @@ jobs:
             cd Infra
             /usr/local/bin/inframap generate main.tf --raw | dot -Tsvg > inframap_azure.svg
       - name: Upload inframap
+        id: inframap-upload-step
         uses: actions/upload-artifact@v4
         with:
           name: inframap_azure.svg
           path: Infra/inframap_azure.svg
+          compression-level: 0 # no compression
 
       - name: Publish inframap in step comment
         run: |
             echo "## Infraestructura Azure" >> $GITHUB_STEP_SUMMARY
             echo "!"
-            echo "![Alt text]($GITHUB_WORKSPACE/artifacts/inframap_azure.svg)" >> inframap_azure.md
+            echo "![Alt text](${{ steps.inframap-upload-step.outputs.artifact-url }})" >> inframap_azure.md
             cat inframap_azure.md >> $GITHUB_STEP_SUMMARY
 
         #echo ""<img src="./controllers_brief.svg">"" >> $GITHUB_STEP_SUMMARY
