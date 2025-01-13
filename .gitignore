@@ -5,6 +5,7 @@
 bin
 obj
 tfstate
+.infracost
 # dotenv files
 .env
 
