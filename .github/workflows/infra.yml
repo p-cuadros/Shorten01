@@ -16,11 +16,25 @@ jobs:
       - name: login azure
         run: | 
           az login -u ${{ secrets.AWA_USERNAME }} -p ${{ secrets.AWA_PASSWORD }}
+
+      - name: Setup tfsec
+        run: |
+            curl -L "$(curl -s https://api.github.com/repos/tfsec/tfsec/releases/latest | grep -o -E "https://.+tfsec-linux-amd64")" -o tfsec
+            chmod +x tfsec
+            mv -v tfsec /usr/local/bin
+
       - name: tfsec
-        uses: aquasecurity/tfsec-sarif-action@v0.1.0
+        uses: tfsec/tfsec-sarif-action@master
         with:
-          sarif_file: Infra/tfsec.sarif          
+          sarif_file: tfsec.sarif
           working_directory: Infra
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: Infra/tfsec.sarif
+            
       - run: |
           ls -la
           ls -la Infra
