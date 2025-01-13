@@ -112,7 +112,8 @@ jobs:
             cd Infra
             /usr/local/bin/inframap generate main.tf --raw | dot -Tsvg > inframap_azure.svg
             echo "## Infraestructura Azure" >> $GITHUB_STEP_SUMMARY
-            cat ./inframap_azure.svg >> $GITHUB_STEP_SUMMARY
+            echo "![Alt text](inframap_azure.svg)" >> inframap_azure.md
+            cat inframap_azure.md >> $GITHUB_STEP_SUMMARY
 
         #echo ""<img src="./controllers_brief.svg">"" >> $GITHUB_STEP_SUMMARY
 
