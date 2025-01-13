@@ -138,6 +138,7 @@ jobs:
         run: |
             echo "${{ steps.html2markdown.outputs.markdown-content }}" >> infracost.md
             sed -i 's/$0/$ 0/g' infracost.md
+            cat infracost.md
             cat infracost.md >> $GITHUB_STEP_SUMMARY
 
 
