@@ -126,7 +126,7 @@ jobs:
             cd Infra
             infracost breakdown --path . --format html --out-file infracost-report.html
             sed -i '19,137d' infracost-report.html
-            cat infracost-report.html
+            sed -i 's/$0/$ 0/g' infracost-report.html
 
       - name: Convert HTML to Markdown
         id: html2markdown
@@ -137,8 +137,6 @@ jobs:
       - name: Upload infracost report
         run: |
             echo "${{ steps.html2markdown.outputs.markdown-content }}" >> infracost.md
-            sed -i 's/$0/$ 0/g' infracost.md
-            cat infracost.md
             cat infracost.md >> $GITHUB_STEP_SUMMARY
 
 
