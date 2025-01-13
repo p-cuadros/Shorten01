@@ -27,3 +27,7 @@ flowchart TD
     azurerm_resource_group_rg --> random_integer_ri
     azurerm_service_plan_appserviceplan --> azurerm_resource_group_rg
 ```
+
+![Alt text](./inframap_azure.svg)
+
+inframap_azure.svg
