@@ -130,7 +130,7 @@ jobs:
 
       - name: Convert HTML to Markdown
         id: html2markdown
-        uses: rknj/html2markdown@v0.1.0
+        uses: rknj/html2markdown@v1.1.0
         with:
             html-file: "Infra/infracost-report.html"
 
