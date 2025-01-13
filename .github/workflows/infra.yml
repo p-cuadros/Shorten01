@@ -29,12 +29,6 @@ jobs:
           sarif_file: tfsec.sarif
           working_directory: Infra
 
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: Infra/tfsec.sarif
-            
       - run: |
           ls -la
           ls -la Infra
