@@ -27,3 +27,6 @@ flowchart TD
     azurerm_resource_group_rg --> random_integer_ri
     azurerm_service_plan_appserviceplan --> azurerm_resource_group_rg
 ```
+
+
+/Users/patrick.cuadros/Sources/AppWeb03/Infra/inframap_azure.svg
