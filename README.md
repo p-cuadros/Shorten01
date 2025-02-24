@@ -59,3 +59,14 @@ architecture-beta
     disk1:T -- B:server
     disk2:T -- B:db
 ```
+
+<div class="mermaid">
+graph TD;
+    A-->B;
+    A-->C;
+</div>
+<!-- Add this anywhere in your Markdown file -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
